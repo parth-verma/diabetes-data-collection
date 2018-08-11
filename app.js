@@ -8,6 +8,14 @@ var session = require('express-session');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+//Set up mongoose connection
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb://127.0.0.1:27017/my_database';
+mongoose.connect(mongoDB,{ useNewUrlParser: true });
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 var app = express();
 
 // view engine setup
@@ -22,7 +30,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'work hard',
     resave: true,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new MongoStore({
+        mongooseConnection: db
+    })
 }));
 
 app.use('/', indexRouter);
@@ -44,12 +55,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-//Set up mongoose connection
-var mongoose = require('mongoose');
-var mongoDB = 'mongodb://127.0.0.1:27017/my_database';
-mongoose.connect(mongoDB,{ useNewUrlParser: true });
-mongoose.Promise = global.Promise;
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 module.exports = app;
