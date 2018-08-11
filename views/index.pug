@@ -2,4 +2,7 @@ extends layout
 
 block content
   //add link to open login page
-  button(type="button") Login
+  form(class="login-form" method="post")
+    input(type="text" class="form-fields" placeholder="Username")
+    input(type="text" class="form-fields" placeholder="Password")
+    button(type="button") Login

@@ -1,8 +1,19 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
-a {
+.login-form
+{
+  text-align: center;
+  margin: auto;
+}
+.form-fields
+{
+  display: block;
+  margin:20px 33%; 
+  width: 33%;
+}
+a
+{
   color: #00B7FF;
 }
