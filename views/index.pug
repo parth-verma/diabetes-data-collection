@@ -2,7 +2,13 @@ extends layout
 
 block content
   //add link to open login page
-  form(class="login-form" method="post")
-    input(type="text" class="form-fields" placeholder="Username")
-    input(type="text" class="form-fields" placeholder="Password")
-    button(type="button") Login
+
+  form(class="login-form" method="post" action="/login")
+    input(type="text" class="form-fields" name='username' placeholder="Username")
+    input(type="password" class="form-fields" name='password' placeholder="Password")
+    button(type="submit") Login
+
+    if (errors)
+      div(hidden=typeof(errors) === undefined )
+        each val in errors
+          ul "#{val.msg}"
