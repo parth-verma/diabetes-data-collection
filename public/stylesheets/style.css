@@ -1,5 +1,6 @@
 body {
   padding: 0px;
+  margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .login-form
@@ -13,7 +14,43 @@ body {
   margin:20px 33%; 
   width: 33%;
 }
-a
+.top-bar
 {
-  color: #00B7FF;
+  background-color: #7acbdd;
+  height: 60px;
+}
+.log-out-btn
+{
+  float: right;
+  color: white;
+  font-size: 32px;
+  margin: 10px;
+}
+.page-container
+{
+  width: 750px;
+  margin: auto;
+}
+.menu-option
+{
+  text-decoration: none;
+  display: inline-block;
+  margin: 50px;
+  height: 75px;
+  width: 150px;
+  color: white;
+  line-height: 75px;
+  text-align: center;
+}
+#bolus-entry-btn
+{
+  background-color: #336699; 
+}
+#basal-entry-btn
+{
+  background-color: #3472b0
+}
+#reading-entry-btn 
+{
+  background-color: #7189ff;
 }
